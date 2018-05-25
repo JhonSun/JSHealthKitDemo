@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kCP-dE-hWa">
+                                <rect key="frame" x="72" y="87.5" width="283" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="SKm-Y2-Gzu"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuM-fI-lMq">
+                                <rect key="frame" x="20" y="92" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWg-iz-bpI">
+                                <rect key="frame" x="40" y="167.5" width="127.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bYE-As-OnL"/>
+                                </constraints>
+                                <state key="normal" title="获取步数"/>
+                                <connections>
+                                    <action selector="getStepCountAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A9x-Pu-ya8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaZ-oO-lGJ">
+                                <rect key="frame" x="207.5" y="167.5" width="127.5" height="30"/>
+                                <state key="normal" title="获取距离"/>
+                                <connections>
+                                    <action selector="getDistanceAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDY-q2-JA3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV2-HM-DKT">
+                                <rect key="frame" x="133" y="217.5" width="108" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ws7-Md-kdI"/>
+                                </constraints>
+                                <state key="normal" title="获取距离和步数"/>
+                                <connections>
+                                    <action selector="getStepAndDistanceAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kms-uZ-3Wb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="步数：0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROe-J0-hle">
+                                <rect key="frame" x="40" y="287.5" width="62.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离：0km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nL-Bm-lds">
+                                <rect key="frame" x="40" y="348" width="86" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0s-ek-sdp">
+                                <rect key="frame" x="112.5" y="388.5" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="MJg-60-QyG"/>
+                                    <constraint firstAttribute="height" constant="30" id="ZAk-1N-84l"/>
+                                </constraints>
+                                <state key="normal" title="清除"/>
+                                <connections>
+                                    <action selector="clearDataAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u1R-4G-FJU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kCP-dE-hWa" firstAttribute="leading" secondItem="fuM-fI-lMq" secondAttribute="trailing" id="3AH-Pl-4RH"/>
+                            <constraint firstItem="7nL-Bm-lds" firstAttribute="top" secondItem="ROe-J0-hle" secondAttribute="bottom" constant="40" id="8Rh-QA-viw"/>
+                            <constraint firstItem="fuM-fI-lMq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CnW-bl-VSV"/>
+                            <constraint firstItem="ROe-J0-hle" firstAttribute="top" secondItem="qV2-HM-DKT" secondAttribute="bottom" constant="40" id="Lwh-Rg-BiW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gaZ-oO-lGJ" secondAttribute="trailing" constant="40" id="Nj8-Q5-NCy"/>
+                            <constraint firstItem="gaZ-oO-lGJ" firstAttribute="bottom" secondItem="cWg-iz-bpI" secondAttribute="bottom" id="SN1-bO-T61"/>
+                            <constraint firstItem="k0s-ek-sdp" firstAttribute="top" secondItem="7nL-Bm-lds" secondAttribute="bottom" constant="20" id="XgZ-rv-dI8"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7nL-Bm-lds" secondAttribute="trailing" constant="20" symbolic="YES" id="dgF-YY-4o5"/>
+                            <constraint firstItem="fuM-fI-lMq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="72" id="fIM-HY-EhF"/>
+                            <constraint firstItem="gaZ-oO-lGJ" firstAttribute="width" secondItem="cWg-iz-bpI" secondAttribute="width" id="fhm-eV-OWv"/>
+                            <constraint firstItem="cWg-iz-bpI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="hku-h0-Vlb"/>
+                            <constraint firstItem="gaZ-oO-lGJ" firstAttribute="top" secondItem="cWg-iz-bpI" secondAttribute="top" id="jAw-AT-jmX"/>
+                            <constraint firstItem="k0s-ek-sdp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mSh-Pb-ZHh"/>
+                            <constraint firstItem="qV2-HM-DKT" firstAttribute="top" secondItem="cWg-iz-bpI" secondAttribute="bottom" constant="20" id="nuf-e6-YuK"/>
+                            <constraint firstItem="qV2-HM-DKT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o13-JL-mxs"/>
+                            <constraint firstItem="7nL-Bm-lds" firstAttribute="leading" secondItem="ROe-J0-hle" secondAttribute="leading" id="oHx-1h-CU8"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ROe-J0-hle" secondAttribute="trailing" constant="20" symbolic="YES" id="oIj-JB-grg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kCP-dE-hWa" secondAttribute="trailing" constant="20" id="tBD-t2-55O"/>
+                            <constraint firstItem="kCP-dE-hWa" firstAttribute="centerY" secondItem="fuM-fI-lMq" secondAttribute="centerY" id="uXY-QL-x0c"/>
+                            <constraint firstItem="gaZ-oO-lGJ" firstAttribute="leading" secondItem="cWg-iz-bpI" secondAttribute="trailing" constant="40" id="xM4-d7-1uz"/>
+                            <constraint firstItem="cWg-iz-bpI" firstAttribute="top" secondItem="kCP-dE-hWa" secondAttribute="bottom" constant="50" id="y2h-O2-TDW"/>
+                            <constraint firstItem="ROe-J0-hle" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="zCv-fZ-5ko"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateTextField" destination="kCP-dE-hWa" id="ynD-7T-X5o"/>
+                        <outlet property="distanceLabel" destination="7nL-Bm-lds" id="2II-7S-kAk"/>
+                        <outlet property="stepCountLabel" destination="ROe-J0-hle" id="7XW-dt-ExO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
