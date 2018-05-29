@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-typedef void (^SuccessHandlerBlock)(CGFloat value);
+typedef void (^SuccessHandlerBlock)(CGFloat value, NSArray *resultArray);
 typedef void (^ErrorHandlerBlock)(NSString *errorString);
 
 @interface HealthKitManager : NSObject
@@ -40,7 +40,7 @@ typedef void (^ErrorHandlerBlock)(NSString *errorString);
 - (void)getDistanceWithSuccessHandler:(SuccessHandlerBlock)successHandler errorHandler:(ErrorHandlerBlock)errorHandler;
 
 /**
- 获取某天的步数
+ 获取某天的步数，包含详情
 
  @param dateString 某天日期 格式yyyy-MM-dd
  @param successHandler 成功回调
@@ -49,7 +49,7 @@ typedef void (^ErrorHandlerBlock)(NSString *errorString);
 - (void)getStepCountWithDateString:(NSString *)dateString successHandler:(SuccessHandlerBlock)successHandler errorHandler:(ErrorHandlerBlock)errorHandler;
 
 /**
- 获取某天的行走距离
+ 获取某天的行走距离，包含详情
  
  @param dateString 某天日期 格式yyyy-MM-dd
  @param successHandler 成功回调

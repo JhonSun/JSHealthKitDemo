@@ -9,6 +9,7 @@
 #import "HealthKitManager.h"
 #import <HealthKit/HealthKit.h>
 #import <UIKit/UIDevice.h>
+#import "StepModel.h"
 
 #define HKVersion [[[UIDevice currentDevice] systemVersion] doubleValue]
 #define CustomHealthErrorDomain @"com.sdqt.healthError"
@@ -120,15 +121,20 @@
             if (errorHandler) errorHandler([error localizedDescription]);
         } else {
             NSInteger totleSteps = 0;
-            for(HKQuantitySample *quantitySample in results)
-            {
+            NSMutableArray *array = [@[] mutableCopy];
+            for(HKQuantitySample *quantitySample in results) {
                 HKQuantity *quantity = quantitySample.quantity;
                 HKUnit *heightUnit = [HKUnit countUnit];
                 double usersHeight = [quantity doubleValueForUnit:heightUnit];
                 totleSteps += usersHeight;
+                StepModel *model = [[StepModel alloc] init];
+                model.stepCount = usersHeight;
+                model.startDate = quantitySample.startDate;
+                model.endDate = quantitySample.endDate;
+                [array addObject:model];
             }
             NSLog(@"%@行走步数 = %ld",dateString , (long)totleSteps);
-            if (successHandler) successHandler(totleSteps);
+            if (successHandler) successHandler(totleSteps, array);
         }
     }];
     
@@ -144,15 +150,21 @@
             if (errorHandler) errorHandler([error localizedDescription]);
         } else {
             double totleSteps = 0;
+            NSMutableArray *array = [@[] mutableCopy];
             for(HKQuantitySample *quantitySample in results)
             {
                 HKQuantity *quantity = quantitySample.quantity;
                 HKUnit *distanceUnit = [HKUnit meterUnitWithMetricPrefix:HKMetricPrefixKilo];
                 double usersHeight = [quantity doubleValueForUnit:distanceUnit];
-                totleSteps += usersHeight;
+                totleSteps += usersHeight * 1000;
+                StepModel *model = [[StepModel alloc] init];
+                model.distance = usersHeight * 1000;
+                model.startDate = quantitySample.startDate;
+                model.endDate = quantitySample.endDate;
+                [array addObject:model];
             }
-            NSLog(@"%@行走距离 = %.2f", dateString , totleSteps);
-            if (successHandler) successHandler(totleSteps);
+            NSLog(@"%@行走距离 = %.1f", dateString , totleSteps);
+            if (successHandler) successHandler(totleSteps, array);
         }
     }];
     [self.healthStore executeQuery:query];
